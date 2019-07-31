@@ -11,7 +11,7 @@ function App() {
             <div>
                 <Switch>
                     <Route exact path="/" component={TablePage}/>
-                    <Route exact path="/user" component={DetailPage}/>
+                    <Route exact path="/user/:userId" component={DetailPage}/>
                 </Switch>
             </div>
         </BrowserRouter>

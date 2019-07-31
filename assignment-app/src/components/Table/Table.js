@@ -39,6 +39,10 @@ class Table extends React.Component {
                 "age": 48
             }];
 
+        const onRowClick= (row) => {
+            window.location ="/user/"+row.id;
+        };
+
         const options = {
             page: 1,  // which page you want to show as default
             sizePerPage: 5,  //  which size per page you want to locate as default
@@ -59,7 +63,9 @@ class Table extends React.Component {
             lastPage: 'Last', // Last page button text
             paginationPosition: 'bottom',  //  default is bottom, top and both is all available
             sortIndicator: true,
-            searchField: (props) => { return (<SearchField placeholder="Search by first name"/>);}
+            searchField: (props) => { return (<SearchField placeholder="Search by first name"/>);},
+            onRowClick: onRowClick
+
         };
 
         return (
@@ -74,11 +80,11 @@ class Table extends React.Component {
                                         search
                                         options={options}
                         >
+                            <TableHeaderColumn dataField='id' isKey={true} hidden={true}>Id</TableHeaderColumn>
                             <TableHeaderColumn thStyle={{whiteSpace: 'normal'}}
                                                tdStyle={{whiteSpace: 'normal'}}
                                                dataField="first_name"
                                                dataSort
-                                               isKey={true}
                                                width='90'>First Name</TableHeaderColumn>
                             <TableHeaderColumn thStyle={{whiteSpace: 'normal'}}
                                                tdStyle={{whiteSpace: 'normal'}}

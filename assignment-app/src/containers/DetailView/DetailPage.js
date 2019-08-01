@@ -5,6 +5,8 @@
  */
 
 import React from 'react';
+import Form from "../../components/Form/Form";
+
 
 export default class DetailPage extends React.Component{
 
@@ -27,7 +29,11 @@ export default class DetailPage extends React.Component{
         })
             .then( response => response.json() )
             .then( data => {
-                console.log(data.filter(user => {return params.userId.includes(user.id)}))
+                const user = data.filter(user => {return params.userId.includes(user.id)});
+                console.log(user);
+                this.setState({
+                    userData: user
+                });
             }
             );
 
@@ -35,7 +41,15 @@ export default class DetailPage extends React.Component{
     render() {
         return (
             <div>
-                DetailPage
+                {(()=>{
+                    if(this.state.userData.length !==0){
+                        return <Form data={this.state.userData}/>;
+                    }
+                    else{
+                        return  <div>Loading.......</div>;
+                    }
+                })()
+                }
             </div>
         );
     }

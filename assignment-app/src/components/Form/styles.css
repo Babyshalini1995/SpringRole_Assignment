@@ -1,0 +1,19 @@
+.name{
+    font-style: italic;
+    font-size: 1.2em;
+}
+
+.tableLayout{
+    font-size: 1.2em;
+    margin: 15px 15px 15px 15px;
+}
+
+.tableValue{
+    width: 80%;
+    text-align: left;
+}
+
+.tableTitle{
+    width: 50%;
+    text-align: left;
+}

@@ -7,9 +7,12 @@ class Form extends React.PureComponent{
     render() {
         return(
             <table className="tableLayout">
+                <thead>
                 <tr className="name">
-                    {this.props.data[0].first_name}  {this.props.data[0].last_name}
+                    <th> {this.props.data[0].first_name}  {this.props.data[0].last_name}</th>
                 </tr>
+                </thead>
+                <tbody>
                 <tr>
                     <td className="tableTitle">Company</td>
                     <td className="tableValue">{this.props.data[0].company_name}</td>
@@ -38,6 +41,7 @@ class Form extends React.PureComponent{
                     <td className="tableTitle">Age</td>
                     <td className="tableValue">{this.props.data[0].age}</td>
                 </tr>
+                </tbody>
             </table>
         );
     }

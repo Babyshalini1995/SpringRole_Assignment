@@ -41,6 +41,7 @@ export default class DetailPage extends React.Component{
     render() {
         return (
             <div>
+                <a href="/" style={{float: "right", marginRight: '20px'}}>Back </a>
                 {(()=>{
                     if(this.state.userData.length !==0){
                         return <Form data={this.state.userData}/>;

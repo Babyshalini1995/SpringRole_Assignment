@@ -13,31 +13,6 @@ class Table extends React.Component {
 
     render() {
 
-        const data= [
-            {
-                "id": 1,
-                "first_name": "James",
-                "last_name": "Butt",
-                "company_name": "Benton, John B Jr",
-                "city": "New Orleans",
-                "state": "LA",
-                "zip": 70116,
-                "email": "jbutt@gmail.com",
-                "web": "http://www.bentonjohnbjr.com",
-                "age": 70
-            },
-            {
-                "id": 2,
-                "first_name": "Josephine",
-                "last_name": "Darakjy",
-                "company_name": "Chanay, Jeffrey A Esq",
-                "city": "Brighton",
-                "state": "MI",
-                "zip": 48116,
-                "email": "josephine_darakjy@darakjy.org",
-                "web": "http://www.chanayjeffreyaesq.com",
-                "age": 48
-            }];
 
         const onRowClick= (row) => {
             window.location ="/user/"+row.id;
@@ -53,7 +28,7 @@ class Table extends React.Component {
             }, {
                 text: '15', value: 15
             }, {
-                text: 'All', value: data.length
+                text: 'All', value: this.props.data.length
             }],
             pageStartIndex: 1, //  where to start counting the pages
             paginationSize: 3,  // the pagination bar size.
@@ -72,7 +47,7 @@ class Table extends React.Component {
             <div className="row" style={{margin:'auto'}}>
                 <div className="col-md-12 col-xs-12 col-sm-12 col-lg-12 ">
                     <div className="mainBox">
-                        <BootstrapTable data={data}
+                        <BootstrapTable data={this.props.data}
                                         striped
                                         hover
                                         condensed
@@ -133,7 +108,7 @@ class Table extends React.Component {
 
 
 Table.propTypes = {
-    TableData: PropTypes.array,
+    data: PropTypes.array,
 };
 
 
